@@ -13,4 +13,6 @@
 #
 class Photo < ApplicationRecord
   belongs_to :owner, class_name: "User", :counter_cache: true
+  has_many :comments, foreign_key: :photo_id
+  has_many :likes, foreign_key: :photo_id
 end
