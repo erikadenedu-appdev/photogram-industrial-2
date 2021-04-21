@@ -10,6 +10,6 @@
 #  updated_at :datetime         not null
 #
 class Comment < ApplicationRecord
-  belongs_to :author, class_name: "User"
-  belongs_to :photo, class_name: "Photo"
+  belongs_to :author, class_name: "User", :counter_cache: true
+  belongs_to :photo, class_name: "Photo", :counter_cache: true
 end
