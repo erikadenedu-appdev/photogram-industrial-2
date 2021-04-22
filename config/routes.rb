@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   
+  resources :users, only: :show
   resources :likes
   resources :follow_requests
   resources :comments
