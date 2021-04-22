@@ -9,7 +9,14 @@ task sample_data: :environment do
     User.destroy_all 
   end
 
-  12.times do 
+  u = User.new 
+    u.username = "pikachu"
+    u.email = u.username.downcase.gsub(/\s+/, "") + "@example.com"
+    u.password = "password"
+    u.save 
+    p u.username  
+
+  11.times do 
     u = User.new
     u.username = Faker::Games::Pokemon.name
     u.email = u.username.downcase.gsub(/\s+/, "") + "@example.com"
