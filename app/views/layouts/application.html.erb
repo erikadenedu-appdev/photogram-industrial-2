@@ -11,11 +11,20 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="">
     <%= render "shared/navbar"%>
 
     <div class="container">
-          <%= yield %>
+
+      <% if notice.present? %>
+        <%= render "shared/flash", message: notice, css_class: "success" %>
+      <% end %>
+
+      <% if alert.present? %>
+        <%= render "shared/flash", message: alert, css_class: "danger" %>
+      <% end %>
+
+      <%= yield %>
     </div>
 
   </body>
