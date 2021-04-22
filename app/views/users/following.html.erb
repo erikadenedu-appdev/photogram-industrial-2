@@ -25,8 +25,10 @@
   </div>
 </div>
 
-<%= current_user.feed.count %>
+<%= current_user.leaders.count %>
 
-<% current_user.feed.each do |photo| %>
-  <%= render "photos/photo", photo: photo %>
-<% end %>
+<ul class="list-group">
+  <% current_user.leaders.each do |following| %>
+    <li class="list-group-item"><%= following.username%></li>
+  <% end %>
+</ul>
